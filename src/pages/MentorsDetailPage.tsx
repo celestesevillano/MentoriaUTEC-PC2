@@ -114,9 +114,9 @@ function MentoringRequestsPage() {
             await api.delete("/api/mentoring-requests/" + id);
         } catch (err: any) {
             if (err.response?.status === 409) {
-                setCancelError("La solicitud ya fue confirmada y no se puede cancelar.");
+                setCancelError("La solicitud ya se confirmó y no se puede cancelar.");
             } else {
-                setCancelError(err.response?.data?.message ?? "No se pudo cancelar");
+                setCancelError(err.response?.data?.message ?? "No se pudo cancelar la mentoria :c");
             }
         } finally {
             setCancellingId(null);
