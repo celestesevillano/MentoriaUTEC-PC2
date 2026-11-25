@@ -17,7 +17,7 @@ function LoginPage() {
     try {
       const res = await api.post("/api/auth/login", { email, password });
       localStorage.setItem("token", res.data.token);
-      navigate("/dashboard");
+      navigate("/mentors");
     } catch (err: any) {
       setError(err.response?.data?.message ?? "No se pudo iniciar sesion");
     } finally {
@@ -29,21 +29,17 @@ function LoginPage() {
     <div className="min-h-screen flex items-center justify-center">
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-80">
         <h1 className="text-2xl font-bold">Iniciar sesion</h1>
-
-        <label htmlFor="email">Correo</label>
         <input
-          id="email"
           type="email"
+          placeholder="Correo electronico"
           className="input input-bordered"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-
-        <label htmlFor="password">Contrasena</label>
         <input
-          id="password"
           type="password"
+          placeholder="Contraseña"
           className="input input-bordered"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://mentoriautec-api.aaron-navarro.workers.dev/api",
+    baseURL: "https://mentoriautec-api.aaron-navarro.workers.dev",
 });
 
 api.interceptors.request.use((config) => {
